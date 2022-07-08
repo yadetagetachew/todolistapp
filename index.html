@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <style>
+    .todos-list{
+      list-style: none;
+    }
+  </style>
+    <button id="display-todos-button">Display Todos</button>
+    <button id="display-toggleAll-button">Display toggleAll</button>
+    <button id="add-button">Add</button>
+    <input id="add-input">
+
+    <button id="edit-button">Edit</button>
+    <input id="edit-position-input">
+    <input id="edit-text-input">
+
+    <button id="delete-button">Delete</button>
+    <input id="delete-text-input">
+
+    <button id="toggle-button">Toggle</button>
+    <input id="toggle-input">
+
+
+    <ul id="todos-ul">
+      
+    </ul>
+
+<script>
+
+    let todos = [
+      {todoText: 'item1', complete: false}, 
+      {todoText: 'item2', complete: false}, 
+      {todoText: 'item3', complete: false}
+    ]
+    displayTodos()
+
+  function displayTodos(){
+    for(let i = 0; i< todos.length; i++){
+      console.log(todos)
+    }
+     let todosUl = document.getElementById('todos-ul')
+     todosUl.innerHTML = ''
+     
+     for(let i = 0; i < todos.length; i++){
+      let todoLi = document.createElement('li')
+      todoLi.classList.add('todos-list')
+      if(todos[i].complete == true){
+        todoLi.innerHTML = '[X]' + todos[i].todoText
+      }
+      else{
+        todoLi.innerHTML = '[]' + todos[i].todoText
+      }
+
+      todosUl.appendChild(todoLi)
+     }
+  }
+
+
+function toggleAll() {
+  let completedTodos = 0;
+
+  for (let i = 0; i < todos.length; i++) {
+    if (todos[i].complete === true) {
+      completedTodos++;
+    }
+    if (completedTodos === todos.length) {
+      for (let i = 0; i < todos.length; i++) {
+        todos[i].complete = false;
+      }
+    } else {
+      for (let i = 0; i < todos.length; i++) {
+        todos[i].complete = true;
+      }
+    }
+  }
+  displayTodos();
+}
+
+      console.log(todos)
+      toggleAll()
+
+
+
+
+
+
+  // for(let i = 0; i < todos.length; i++){
+  //   console.log(todos[i])
+  // }
+
+  // function displayTodos(){
+  //   console.log('Here is my Todo list:', todos)
+  // }
+
+// adding to array
+  // function add(initialTodoText){
+  //   todos.push({todoText: initialTodoText, complete: false})
+  //   displayTodos()
+  // }
+  function add(){
+    let initialTodoText = addInput.value
+    todos.push({todoText: initialTodoText, complete: false})
+    addInput.value = ""
+    displayTodos()
+  }
+
+// editing a paramater
+// edit(0,'item 1 edited')
+// {todoText: 'item 1 edited', completed: false}
+// function edit(position, newTodoText){
+//   todos[position].todoText = newTodoText
+//   displayTodos()
+// }
+
+function edit(){
+  let position = editPositionInput.value
+  let newTodoText = editTextInput.value
+  todos[position].todoText = newTodoText
+  editPositionInput.value = ''
+  editTextInput.value = ''
+  displayTodos()
+}
+
+// Toggling a todo
+// function toggle(position){
+
+// }
+// toggle(0)
+// {todoText: 'item 1'. complete: trure},
+
+// Pseudocode for running the toggle function
+// for the first time
+
+// toggle(0);
+// {todotext: 'item 1', complete: true}
+
+// toggle(0)
+// {todotext: 'item 1', complete: false}
+
+// toggle(0)
+// {todotext: 'item 1', complete: true}
+
+// outline
+function toggle(){
+  // If the item in the todo position has the .complete property equal to false
+     // make .completed true
+
+  // If the item in the todo position has .complete equal to true
+    // Then make .completed equal to false
+  let position = toggleInput.value
+  if (todos[position].complete === false){
+    todos[position.complete = true]
+  }
+  else{
+    todos[position.complete = false]
+  }
+  displayTodos()
+}
+
+
+
+
+// remove from array
+      // function remove(position){
+      //   todos.splice = (position, 1)
+      //   displayTodos()
+      // }
+      function remove(){
+        let position = deleteInput.value
+        todos.splice = (position, 1)
+        editPositionInput.value = ''
+        displayTodos()
+      }
+
+      let displayTodosButton = document.getElementById('display-todos-button')
+      displayTodosButton.addEventListener('click', displayTodos)
+
+      let toggleAllButton = document.getElementById('display-toggleAll-button')
+      toggleAllButton.addEventListener('click', toggleAll)
+
+      let addButton = document.getElementById('add-button')
+      let addInput = document.getElementById('add-input')
+      addButton.addEventListener('click', add)
+
+      let editButton = document.getElementById('edit-button')
+      let editPositionInput = document.getElementById('edit-position')
+      let editTextInput = document.getElementById("edit-text-input")
+      editButton.addEventListener('click', edit)
+
+      let deleteButton = document.getElementById('delete-button')
+      let deleteInput = document.getElementById('delete-text-input')
+      deleteButton.addEventListener('click', remove)
+
+      let toggleButton = document.getElementById('toggle-button')
+      let toggleInput = document.getElementById('toggle-input')
+
+
+
+//         edit(1, "new addition")
+
+//         todos[0] = 'item 1 updated' 
+        
+//         console.log(todos)
+
+//         todos.splice(0, 1)
+
+//         console.log(todos)
+
+    
+
+//     function demoFuntion(myData){
+        
+//     }
+// let myName = "Yadi";
+// function sayMyName(){
+//     let secret = "Bitwise"
+//     console.log(myName)
+// }
+// sayMyName()
+// console.loh(secret)
+
+// function displayTodos(){
+//     console.log('Here is my Todo list:', todos)
+// }
+    
+
+
+// let outside = 'outside';
+
+// function a() {
+//   let aLet = 'a';
+  
+//   function aInner1() {
+//     let aInner1Let = 'aInner1Let';
+    
+//     function aInner1Inner() {
+//       var aInner1InnerLet = 'aInner1InnerLet'; 
+//     }
+//   }
+  
+//   function aInner2(aInner2Param) {
+//     var aInner2Let = aInner2Param;
+//   }
+// }
+
+// function b(bParam) {
+//   console.log(bParam);
+// }
+
+
+
+// let myTodos = [
+//     {todoText: 'Get groceries', completed: true},
+//     {todoText: 'Go for a run', completed: false}
+// ]
+
+// // myTodos[0].todoText
+// // result = 'Get groceries'
+
+// // myTodos[0].completed
+// //result = true
+
+//FOR LOOPS
+
+//i  = 0  => intitialization
+// say "hey" 3 times (if i < 3) ==> condition
+//increase i by 1 ==> final expression
+
+// 0 "hey"
+// 1 "hey"
+// 2 "hey"
+// stop
+
+//for(initialization; condition; finalExpression){
+// console.log("hey")
+//}
+
+// for(let i = 0; i < 3; i++){
+// console.log("hey")
+//}
+
+
+
+
+        </script>
+</body>
+</html>

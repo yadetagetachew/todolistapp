@@ -1,0 +1,33 @@
+Version 1
+[x] we want the ability to store todos
+[x] we want to display/see the todos
+[x] we want to add another todo list item
+[x] we want to edit a todo list item
+[x] we want to delete a todo list item
+
+Version 2
+[x] should have a funtion to add a to do
+[x] should add a funtion to edit a todo
+[x] should have a funtion to remove a todo
+
+Version 3
+[x] We should initializwe the todos variable with objects
+[x] The add function should add objects
+[x] Edit object 
+
+Version 4
+[] It should have a function to toggle a todo
+
+Version 5
+[] To have a new function 
+[] displayTodos should show the todoTexr property and completed property 
+
+Version 6 
+[] we should have a function for toggling all todos
+[] if all are completed 
+[]
+
+Version 7
+[]
+[]
+[]
