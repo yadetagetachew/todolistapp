@@ -42,20 +42,20 @@
     displayTodos()
 
   function displayTodos(){
-    for(let i = 0; i< todos.length; i++){
-      console.log(todos)
-    }
+    // for(let i = 0; i< todos.length; i++){
+    //   console.log(todos[i])
+    // }
      let todosUl = document.getElementById('todos-ul')
      todosUl.innerHTML = ''
      
      for(let i = 0; i < todos.length; i++){
       let todoLi = document.createElement('li')
       todoLi.classList.add('todos-list')
-      if(todos[i].complete == true){
-        todoLi.innerHTML = '[X]' + todos[i].todoText
+      if(todos[i].complete === true){
+        todoLi.innerText = '[X]' + todos[i].todoText
       }
       else{
-        todoLi.innerHTML = '[]' + todos[i].todoText
+        todoLi.innerText = '[]' + todos[i].todoText
       }
 
       todosUl.appendChild(todoLi)
@@ -82,14 +82,6 @@ function toggleAll() {
   }
   displayTodos();
 }
-
-      console.log(todos)
-      toggleAll()
-
-
-
-
-
 
   // for(let i = 0; i < todos.length; i++){
   //   console.log(todos[i])
@@ -156,10 +148,10 @@ function toggle(){
     // Then make .completed equal to false
   let position = toggleInput.value
   if (todos[position].complete === false){
-    todos[position.complete = true]
+    todos[position].complete = true
   }
   else{
-    todos[position.complete = false]
+    todos[position].complete = false
   }
   displayTodos()
 }
@@ -174,8 +166,8 @@ function toggle(){
       // }
       function remove(){
         let position = deleteInput.value
-        todos.splice = (position, 1)
-        editPositionInput.value = ''
+        todos.splice(position, 1)
+        // editPositionInput.value = ''
         displayTodos()
       }
 
@@ -190,7 +182,7 @@ function toggle(){
       addButton.addEventListener('click', add)
 
       let editButton = document.getElementById('edit-button')
-      let editPositionInput = document.getElementById('edit-position')
+      let editPositionInput = document.getElementById('edit-position-input')
       let editTextInput = document.getElementById("edit-text-input")
       editButton.addEventListener('click', edit)
 
@@ -200,6 +192,8 @@ function toggle(){
 
       let toggleButton = document.getElementById('toggle-button')
       let toggleInput = document.getElementById('toggle-input')
+      toggleButton.addEventListener('click', toggle)
+
 
 
 
