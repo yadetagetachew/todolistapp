@@ -12,8 +12,8 @@
       list-style: none;
     }
   </style>
-    <button id="display-todos-button">Display Todos</button>
-    <button id="display-toggleAll-button">Display toggleAll</button>
+    <!-- <button id="display-todos-button">Display Todos</button> -->
+    <button id="display-toggleAll-button">ToggleAll</button>
     <button id="add-button">Add</button>
     <input id="add-input">
 
@@ -21,8 +21,8 @@
     <input id="edit-position-input">
     <input id="edit-text-input">
 
-    <button id="delete-button">Delete</button>
-    <input id="delete-text-input">
+    <!-- <button id="delete-button">Delete</button>
+    <input id="delete-text-input"> -->
 
     <button id="toggle-button">Toggle</button>
     <input id="toggle-input">
@@ -42,9 +42,6 @@
     displayTodos()
 
   function displayTodos(){
-    // for(let i = 0; i< todos.length; i++){
-    //   console.log(todos[i])
-    // }
      let todosUl = document.getElementById('todos-ul')
      todosUl.innerHTML = ''
      
@@ -58,6 +55,11 @@
         todoLi.innerText = '[]' + todos[i].todoText
       }
 
+      let removeButton = document.createElement('button')
+      removeButton.innerText = 'Remove'
+      removeButton.addEventListener('click', remove)
+      remove.id = i;
+      todosUl.appendChild(removeButton)
       todosUl.appendChild(todoLi)
      }
   }
@@ -82,14 +84,6 @@ function toggleAll() {
   }
   displayTodos();
 }
-
-  // for(let i = 0; i < todos.length; i++){
-  //   console.log(todos[i])
-  // }
-
-  // function displayTodos(){
-  //   console.log('Here is my Todo list:', todos)
-  // }
 
 // adding to array
   // function add(initialTodoText){
@@ -120,26 +114,6 @@ function edit(){
   displayTodos()
 }
 
-// Toggling a todo
-// function toggle(position){
-
-// }
-// toggle(0)
-// {todoText: 'item 1'. complete: trure},
-
-// Pseudocode for running the toggle function
-// for the first time
-
-// toggle(0);
-// {todotext: 'item 1', complete: true}
-
-// toggle(0)
-// {todotext: 'item 1', complete: false}
-
-// toggle(0)
-// {todotext: 'item 1', complete: true}
-
-// outline
 function toggle(){
   // If the item in the todo position has the .complete property equal to false
      // make .completed true
@@ -147,6 +121,7 @@ function toggle(){
   // If the item in the todo position has .complete equal to true
     // Then make .completed equal to false
   let position = toggleInput.value
+  toggleInput.value = ''
   if (todos[position].complete === false){
     todos[position].complete = true
   }
@@ -156,23 +131,20 @@ function toggle(){
   displayTodos()
 }
 
-
-
-
-// remove from array
-      // function remove(position){
-      //   todos.splice = (position, 1)
+      // function remove(){
+      //   let position = deleteInput.value
+      //   todos.splice(position, 1)
       //   displayTodos()
       // }
+      
       function remove(){
-        let position = deleteInput.value
+        let position = event.target.id
         todos.splice(position, 1)
-        // editPositionInput.value = ''
         displayTodos()
       }
 
-      let displayTodosButton = document.getElementById('display-todos-button')
-      displayTodosButton.addEventListener('click', displayTodos)
+      // let displayTodosButton = document.getElementById('display-todos-button')
+      // displayTodosButton.addEventListener('click', displayTodos)
 
       let toggleAllButton = document.getElementById('display-toggleAll-button')
       toggleAllButton.addEventListener('click', toggleAll)
@@ -186,26 +158,13 @@ function toggle(){
       let editTextInput = document.getElementById("edit-text-input")
       editButton.addEventListener('click', edit)
 
-      let deleteButton = document.getElementById('delete-button')
-      let deleteInput = document.getElementById('delete-text-input')
-      deleteButton.addEventListener('click', remove)
+      // let deleteButton = document.getElementById('delete-button')
+      // let deleteInput = document.getElementById('delete-text-input')
+      // deleteButton.addEventListener('click', remove)
 
       let toggleButton = document.getElementById('toggle-button')
       let toggleInput = document.getElementById('toggle-input')
       toggleButton.addEventListener('click', toggle)
-
-
-
-
-//         edit(1, "new addition")
-
-//         todos[0] = 'item 1 updated' 
-        
-//         console.log(todos)
-
-//         todos.splice(0, 1)
-
-//         console.log(todos)
 
     
 
@@ -219,11 +178,6 @@ function toggle(){
 // }
 // sayMyName()
 // console.loh(secret)
-
-// function displayTodos(){
-//     console.log('Here is my Todo list:', todos)
-// }
-    
 
 
 // let outside = 'outside';
@@ -250,39 +204,12 @@ function toggle(){
 
 
 
-// let myTodos = [
-//     {todoText: 'Get groceries', completed: true},
-//     {todoText: 'Go for a run', completed: false}
-// ]
-
-// // myTodos[0].todoText
-// // result = 'Get groceries'
-
-// // myTodos[0].completed
-// //result = true
-
-//FOR LOOPS
-
-//i  = 0  => intitialization
-// say "hey" 3 times (if i < 3) ==> condition
-//increase i by 1 ==> final expression
-
-// 0 "hey"
-// 1 "hey"
-// 2 "hey"
-// stop
-
-//for(initialization; condition; finalExpression){
-// console.log("hey")
-//}
-
-// for(let i = 0; i < 3; i++){
-// console.log("hey")
-//}
 
 
 
 
-        </script>
+
+
+ </script>
 </body>
 </html>
