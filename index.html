@@ -13,19 +13,19 @@
     }
   </style>
     <!-- <button id="display-todos-button">Display Todos</button> -->
-    <button id="display-toggleAll-button">ToggleAll</button>
+    <button id="toggleAll-button">ToggleAll</button>
     <button id="add-button">Add</button>
     <input id="add-input">
 
-    <button id="edit-button">Edit</button>
+    <!-- <button id="edit-button">Edit</button>
     <input id="edit-position-input">
-    <input id="edit-text-input">
+    <input id="edit-text-input"> -->
 
     <!-- <button id="delete-button">Delete</button>
     <input id="delete-text-input"> -->
 
-    <button id="toggle-button">Toggle</button>
-    <input id="toggle-input">
+    <!-- <button id="toggle-button">Toggle</button>
+    <input id="toggle-input"> -->
 
 
     <ul id="todos-ul">
@@ -47,7 +47,7 @@
      
      for(let i = 0; i < todos.length; i++){
       let todoLi = document.createElement('li')
-      todoLi.classList.add('todos-list')
+      // todoLi.classList.add('todos-list')
       if(todos[i].complete === true){
         todoLi.innerText = '[X]' + todos[i].todoText
       }
@@ -58,8 +58,23 @@
       let removeButton = document.createElement('button')
       removeButton.innerText = 'Remove'
       removeButton.addEventListener('click', remove)
-      remove.id = i;
-      todosUl.appendChild(removeButton)
+      removeButton.id = 'toggle-' + i;
+
+      // v11 toggle
+      let toggleButton = document.createElement('button')
+      toggleButton.innerText = 'Toggle'
+      toggleButton.addEventListener('click', toggle)
+      toggleButton.id = 'toggle-' + i;
+
+      let editButton = document.createElement('button')
+      editButton.innerText = 'Edit'
+      editButton.addEventListener('click', edit)
+      editButton.id = 'edit-' + i
+
+      todoLi.appendChild(toggleButton)
+      // Gabby's version has todosLi instead of todosUL below
+      todoLi.appendChild(removeButton)
+      todoLi.appendChild(editButton)
       todosUl.appendChild(todoLi)
      }
   }
@@ -106,22 +121,30 @@ function toggleAll() {
 // }
 
 function edit(){
-  let position = editPositionInput.value
-  let newTodoText = editTextInput.value
+  let newTodoText = prompt()
+  if(newTodoText === null){
+    return todoText
+  }
+  else if(newTodoText === ""){
+    return todoText
+  }
+  else{
+
+  }
+  let position = event.target.id.split('-')[1]
   todos[position].todoText = newTodoText
-  editPositionInput.value = ''
-  editTextInput.value = ''
   displayTodos()
 }
 
-function toggle(){
+function toggle(event){
   // If the item in the todo position has the .complete property equal to false
      // make .completed true
 
   // If the item in the todo position has .complete equal to true
     // Then make .completed equal to false
-  let position = toggleInput.value
-  toggleInput.value = ''
+
+  let position = event.target.id.split('-')[1]
+  
   if (todos[position].complete === false){
     todos[position].complete = true
   }
@@ -137,35 +160,39 @@ function toggle(){
       //   displayTodos()
       // }
       
-      function remove(){
+      function remove(event){
         let position = event.target.id
         todos.splice(position, 1)
         displayTodos()
       }
 
-      // let displayTodosButton = document.getElementById('display-todos-button')
+      // let displayTodosButton = document.getElementById('todos-button')
       // displayTodosButton.addEventListener('click', displayTodos)
 
-      let toggleAllButton = document.getElementById('display-toggleAll-button')
+      let toggleAllButton = document.getElementById('toggleAll-button')
       toggleAllButton.addEventListener('click', toggleAll)
 
       let addButton = document.getElementById('add-button')
       let addInput = document.getElementById('add-input')
       addButton.addEventListener('click', add)
 
-      let editButton = document.getElementById('edit-button')
-      let editPositionInput = document.getElementById('edit-position-input')
-      let editTextInput = document.getElementById("edit-text-input")
-      editButton.addEventListener('click', edit)
+      // let editButton = document.getElementById('edit-button')
+      // let editPositionInput = document.getElementById('edit-position-input')
+      // let editTextInput = document.getElementById("edit-text-input")
+      // editButton.addEventListener('click', edit)
 
       // let deleteButton = document.getElementById('delete-button')
       // let deleteInput = document.getElementById('delete-text-input')
       // deleteButton.addEventListener('click', remove)
 
-      let toggleButton = document.getElementById('toggle-button')
-      let toggleInput = document.getElementById('toggle-input')
-      toggleButton.addEventListener('click', toggle)
-      
+      // let toggleButton = document.getElementById('toggle-button')
+      // let toggleInput = document.getElementById('toggle-input')
+      // toggleButton.addEventListener('click', toggle)
+
  </script>
 </body>
 </html>
+
+
+
+<!-- swear display /   -->
