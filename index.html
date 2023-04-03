@@ -5,194 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- css -->
+    <link rel="stylesheet" href="/css/style.css">
+     
+    <!-- JavaScript -->
+    <script src="/script.js" defer></script>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
 </head>
 <body>
-  <style>
-    .todos-list{
-      list-style: none;
-    }
-  </style>
-    <!-- <button id="display-todos-button">Display Todos</button> -->
+  
     <button id="toggleAll-button">ToggleAll</button>
     <button id="add-button">Add</button>
     <input id="add-input">
-
-    <!-- <button id="edit-button">Edit</button>
-    <input id="edit-position-input">
-    <input id="edit-text-input"> -->
-
-    <!-- <button id="delete-button">Delete</button>
-    <input id="delete-text-input"> -->
-
-    <!-- <button id="toggle-button">Toggle</button>
-    <input id="toggle-input"> -->
-
 
     <ul id="todos-ul">
       
     </ul>
 
-<script>
-
-    let todos = [
-      {todoText: 'item1', complete: false}, 
-      {todoText: 'item2', complete: false}, 
-      {todoText: 'item3', complete: false}
-    ]
-    displayTodos()
-
-  function displayTodos(){
-     let todosUl = document.getElementById('todos-ul')
-     todosUl.innerHTML = ''
-     
-     for(let i = 0; i < todos.length; i++){
-      let todoLi = document.createElement('li')
-      // todoLi.classList.add('todos-list')
-      if(todos[i].complete === true){
-        todoLi.innerText = '[X]' + todos[i].todoText
-      }
-      else{
-        todoLi.innerText = '[]' + todos[i].todoText
-      }
-
-      let removeButton = document.createElement('button')
-      removeButton.innerText = 'Remove'
-      removeButton.addEventListener('click', remove)
-      removeButton.id = 'toggle-' + i;
-
-      // v11 toggle
-      let toggleButton = document.createElement('button')
-      toggleButton.innerText = 'Toggle'
-      toggleButton.addEventListener('click', toggle)
-      toggleButton.id = 'toggle-' + i;
-
-      let editButton = document.createElement('button')
-      editButton.innerText = 'Edit'
-      editButton.addEventListener('click', edit)
-      editButton.id = 'edit-' + i
-
-      todoLi.appendChild(toggleButton)
-      // Gabby's version has todosLi instead of todosUL below
-      todoLi.appendChild(removeButton)
-      todoLi.appendChild(editButton)
-      todosUl.appendChild(todoLi)
-     }
-  }
-
-
-function toggleAll() {
-  let completedTodos = 0;
-
-  for (let i = 0; i < todos.length; i++) {
-    if (todos[i].complete === true) {
-      completedTodos++;
-    }
-    if (completedTodos === todos.length) {
-      for (let i = 0; i < todos.length; i++) {
-        todos[i].complete = false;
-      }
-    } else {
-      for (let i = 0; i < todos.length; i++) {
-        todos[i].complete = true;
-      }
-    }
-  }
-  displayTodos();
-}
-
-// adding to array
-  // function add(initialTodoText){
-  //   todos.push({todoText: initialTodoText, complete: false})
-  //   displayTodos()
-  // }
-  function add(){
-    let initialTodoText = addInput.value
-    todos.push({todoText: initialTodoText, complete: false})
-    addInput.value = ""
-    displayTodos()
-  }
-
-// editing a paramater
-// edit(0,'item 1 edited')
-// {todoText: 'item 1 edited', completed: false}
-// function edit(position, newTodoText){
-//   todos[position].todoText = newTodoText
-//   displayTodos()
-// }
-
-function edit(){
-  let newTodoText = prompt()
-  if(newTodoText === null){
-    return todoText
-  }
-  else if(newTodoText === ""){
-    return todoText
-  }
-  else{
-
-  }
-  let position = event.target.id.split('-')[1]
-  todos[position].todoText = newTodoText
-  displayTodos()
-}
-
-function toggle(event){
-  // If the item in the todo position has the .complete property equal to false
-     // make .completed true
-
-  // If the item in the todo position has .complete equal to true
-    // Then make .completed equal to false
-
-  let position = event.target.id.split('-')[1]
-  
-  if (todos[position].complete === false){
-    todos[position].complete = true
-  }
-  else{
-    todos[position].complete = false
-  }
-  displayTodos()
-}
-
-      // function remove(){
-      //   let position = deleteInput.value
-      //   todos.splice(position, 1)
-      //   displayTodos()
-      // }
-      
-      function remove(event){
-        let position = event.target.id
-        todos.splice(position, 1)
-        displayTodos()
-      }
-
-      // let displayTodosButton = document.getElementById('todos-button')
-      // displayTodosButton.addEventListener('click', displayTodos)
-
-      let toggleAllButton = document.getElementById('toggleAll-button')
-      toggleAllButton.addEventListener('click', toggleAll)
-
-      let addButton = document.getElementById('add-button')
-      let addInput = document.getElementById('add-input')
-      addButton.addEventListener('click', add)
-
-      // let editButton = document.getElementById('edit-button')
-      // let editPositionInput = document.getElementById('edit-position-input')
-      // let editTextInput = document.getElementById("edit-text-input")
-      // editButton.addEventListener('click', edit)
-
-      // let deleteButton = document.getElementById('delete-button')
-      // let deleteInput = document.getElementById('delete-text-input')
-      // deleteButton.addEventListener('click', remove)
-
-      // let toggleButton = document.getElementById('toggle-button')
-      // let toggleInput = document.getElementById('toggle-input')
-      // toggleButton.addEventListener('click', toggle)
-
- </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
 </body>
 </html>
-
-
-
-<!-- swear display /   -->
