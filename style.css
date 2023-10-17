@@ -1,3 +1,57 @@
+body{
+  background-color: rgba(0, 1, 15, 0.366) !important;
+}
+html{
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
 .todos-list{
-    list-style: none;
+  list-style: none;
+  padding: 1rem;
   }
+  #todos-ul{
+    padding: 1rem;
+    margin: 1rem;
+    font-size: 25px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    }
+.removeBtn {
+  background-color: transparent;
+  border-radius: 5%;
+  border-style: none;
+  }
+.toggleBtn{
+  display: inline-block;
+  background-color: transparent;
+  border:none;
+}
+img, svg{
+  pointer-events: none;
+}
+.editBtn{
+  background-color: transparent;
+  border: none;
+}
+.display-wrapper{
+  height: 100vh;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.display-wrapper h1{
+  font-family: 'Times New Roman', Times, serif;
+}
+.display{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+text-align: center;
+background-color: rgb(213, 217, 240);
+padding: 5rem;
+height: fit-content;
+border-radius: 5%;
+}
