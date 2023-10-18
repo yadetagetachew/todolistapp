@@ -1,3 +1,4 @@
+
 let todos = [
     // {todoText: 'item1', complete: false}, 
     // {todoText: 'item2', complete: false}, 
@@ -128,3 +129,5 @@ toggleAllButton.addEventListener('click', toggleAll)
 let addButton = document.getElementById('add-button')
 let addInput = document.getElementById('add-input')
 addButton.addEventListener('click', add)
+
+localStorage.setItem(todoLi);

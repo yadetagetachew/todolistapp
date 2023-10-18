@@ -1,5 +1,13 @@
 body{
-  background-color: rgba(0, 1, 15, 0.366) !important;
+  background-image: linear-gradient(to right bottom, #e8c771, #e8ce80, #e9d58f, #eadc9e, #ebe2ad, #ebdeaa, #ecdaa7, #ecd6a4, #ecc591, #edb482, #eea176, #ee8e70);  
+  height: 100vh;
+  scroll-behavior: smooth;
+  margin: auto;
+  min-height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
 }
 html{
   width: 100%;
@@ -34,24 +42,23 @@ img, svg{
   border: none;
 }
 .display-wrapper{
-  height: 100vh;
-  width: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin-top: 2rem;
 }
 .display-wrapper h1{
   font-family: 'Times New Roman', Times, serif;
+  margin-bottom: 1.5rem;
+  font-size: 50px;
+  font-weight: bold;
 }
 .display{
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-text-align: center;
-background-color: rgb(213, 217, 240);
-padding: 5rem;
-height: fit-content;
-border-radius: 5%;
+  background-color: rgb(219, 197, 182);
+  padding: 5rem;
+  height: fit-content;
+  border-radius: 5%;
+  box-shadow: 0px 4px 16px 6px rgba(255, 92, 20, 0.6);
+  margin-bottom: 3rem;
 }
